@@ -18,29 +18,30 @@ main -> dev -> feat-{task} (commit)
 
 ```
 src/
-  App.tsx                    # root component
-  main.tsx                   # React entry point
-  types.ts                   # Category, TransactionCategory, TRANSACTION_CATEGORIES, Transaction
-  styles.css                 # global styles
-  app/                       # NEW (move App.tsx into this?)
-    hooks.ts                 # resusable hooks (start with rtk hooks)
-    store.ts                 # store for state with redux
+  App.tsx                       # root component
+  main.tsx                      # React entry point
+  types.ts                      # Category, TransactionCategory, TRANSACTION_CATEGORIES, Transaction
+  styles.css                    # global styles
+  app/                          # NEW (move App.tsx || main.tsx into this?)
+    hooks.ts                    # resusable hooks (start with rtk hooks)
+    store.ts                    # store for state with redux
   data/
-    transactions.ts          # seed data — mock transactions for the last 7 days
+    transactions.ts             # seed data — mock transactions for the last 7 days
   components/
-    DayGroup.tsx             # renders a single day's header + rows
-    TransactionRow.tsx       # renders one transaction
+    DayGroup.tsx                # renders a single day's header + rows
+    TransactionRow.tsx          # renders one transaction
   utils/
-    format.ts                # currency + date formatting helpers
-    transactions.ts          # grouping / sorting helpers
-  features/                  # NEW
-    treansactionsSlice.ts    # rtk slice for actions and reducers
+    format.ts                   # currency + date formatting helpers
+    transactions.ts             # grouping / sorting helpers
+  features/                     # NEW
+    /transactions               # unnecessary?
+        treansactionsSlice.ts   # rtk slice for actions and reducers
 ```
 
 - c. write bare bones slice in treansactionsSlice with add and delete transaction state => state (no change)
 - d. create store in app/store.ts for root state and dispatch
 - e. create hooks for rtk dispatch and selector
-- f. position useAppSelector in App.tsx for redux state managment of transactions
+- f. position useAppSelector in App.tsx && main.tsx for redux state managment of transactions
 
 ## 2. Add a transaction
 
