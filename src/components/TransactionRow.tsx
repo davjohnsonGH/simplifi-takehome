@@ -1,14 +1,14 @@
-import type { Transaction } from '../types'
-import { formatCurrency } from '../utils/format'
+import type { Transaction } from "../types";
+import { formatCurrency } from "../utils/format";
 
 interface Props {
-  transaction: Transaction
+  transaction: Transaction;
 }
 
 export function TransactionRow({ transaction }: Props) {
-  const { merchant, category, amount } = transaction
-  const isCredit = amount > 0
-  const amountClass = isCredit ? 'amount-credit' : 'amount-debit'
+  const { merchant, category, amount } = transaction;
+  const isCredit = amount > 0;
+  const amountClass = isCredit ? "amount-credit" : "amount-debit";
 
   return (
     <li className="transaction-row">
@@ -17,9 +17,9 @@ export function TransactionRow({ transaction }: Props) {
         <span className="transaction-category">{category}</span>
       </div>
       <span className={`transaction-amount ${amountClass}`}>
-        {isCredit ? '+' : ''}
+        {isCredit ? "+" : ""}
         {formatCurrency(Math.abs(amount))}
       </span>
     </li>
-  )
+  );
 }
