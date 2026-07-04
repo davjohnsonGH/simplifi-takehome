@@ -1,9 +1,10 @@
-import { DayGroup } from './components/DayGroup'
-import { transactions } from './data/transactions'
-import { groupByDay } from './utils/transactions'
+import { DayGroup } from "./components/DayGroup";
+import { groupByDay } from "./utils/transactions";
+import { useAppSelector } from "./app/hooks";
 
 export default function App() {
-  const grouped = groupByDay(transactions)
+  const transactions = useAppSelector((state) => state.transactions.items);
+  const grouped = groupByDay(transactions);
 
   return (
     <div className="app">
@@ -17,5 +18,5 @@ export default function App() {
         ))}
       </main>
     </div>
-  )
+  );
 }
