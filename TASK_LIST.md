@@ -112,3 +112,4 @@ src/
 - a. review folder structure to see if this makes sense for exercise vs scalibility
 - b. styling
 - c. tests??
+- e.
