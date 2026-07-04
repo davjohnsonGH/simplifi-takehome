@@ -19,3 +19,5 @@ const transactionsSlice = createSlice({
         deleteTransaction: state => state
     }
 })
+
+export default transactionsSlice.reducer;
