@@ -6,9 +6,9 @@ type Option = {
 };
 
 interface SelectProps extends FormComponentBase {
-  name: string;
-  placeholder: string;
-  options: Option[];
+  name?: string;
+  placeholder?: string;
+  options?: Option[];
 }
 
 export default function Select({
@@ -32,11 +32,12 @@ export default function Select({
         // onChange={(e) => onChange(id, e.target.value)}
       >
         <option value="">{placeholder ?? "choose one"}</option>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
+        {options &&
+          options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
       </select>
     </>
   );
