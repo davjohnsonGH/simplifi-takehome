@@ -12,7 +12,7 @@ export default function Datepicker({
   max,
   required,
   disabled,
-  //   onChange,
+  onChange,
 }: DatepickerProps) {
   return (
     <>
@@ -24,7 +24,7 @@ export default function Datepicker({
         disabled={disabled}
         min={min}
         max={max}
-        // onChange={(e) => onChange(id, e.target.value)}
+        onChange={(e) => onChange(id, e.target.value)}
       />
     </>
   );

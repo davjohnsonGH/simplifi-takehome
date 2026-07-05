@@ -16,7 +16,7 @@ export default function NumberInput({
   max,
   step,
   placeholder,
-  //   onChange,
+  onChange,
 }: NumberInputProps) {
   return (
     <>
@@ -30,7 +30,7 @@ export default function NumberInput({
         required={required}
         disabled={disabled}
         placeholder={placeholder}
-        // onChange={(e) => onChange(id, Number(e.target.value))}
+        onChange={(e) => onChange(id, Number(e.target.value))}
       />
     </>
   );

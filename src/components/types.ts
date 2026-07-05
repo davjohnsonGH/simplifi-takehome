@@ -3,5 +3,5 @@ export type FormComponentBase = {
     label: string;
     required?: boolean;
     disabled?: boolean;
-    onChange?: (fieldId: string, value: string) => void;
+    onChange: (fieldId: string, value: string | number) => void;
 }
