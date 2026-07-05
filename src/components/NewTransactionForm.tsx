@@ -28,9 +28,12 @@ export default function NewTransactionForm({}: NewTransactionFormProps) {
       [fieldId]: value,
     }));
   }
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+  }
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <Datepicker
         id={elIdPrefix + "-datepicker"}
         label="Transaction date"
@@ -52,6 +55,7 @@ export default function NewTransactionForm({}: NewTransactionFormProps) {
         options={options}
         onChange={handleChange}
       />
-    </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
