@@ -83,12 +83,9 @@ src/
 - e. NumberInput.tsx and position into NewTransactionForm.tsx
 - f. TextInput.tsx and position into NewTransactionForm.tsx
 - g. Select.tsx and position into NewTransactionForm.tsx
-- h. logic for onChange
+- h. logic for onChange, onSubmit, options rendering and logic
 - i. logic for onSubmit
-- j. logic for select options
-- k. enable NewTransactionForm within Modal within App.tsx
-- l. implement addTransaction reducer in transactionsSlice and export addTransaction action
-- l. enable newTransationSubmit within App.tsx
+- j. implement addTransaction reducer in transactionsSlice and export addTransaction action
 
 ## 3. Delete a transaction
 
