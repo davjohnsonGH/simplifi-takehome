@@ -17,13 +17,14 @@ main -> dev -> feat-{task} (commit)
 - b. enable folder structure for state management
 
 ```
+// * new dir || folder
 src/
   App.tsx                       # root component
   main.tsx                      # React entry point
   types.ts                      # Category, TransactionCategory, TRANSACTION_CATEGORIES, Transaction
   styles.css                    # global styles
-  app/                          # NEW (move App.tsx || main.tsx into this?)
-    hooks.ts                    # resusable hooks (start with rtk hooks)
+  app/                          * (move App.tsx || main.tsx into this?)
+    hooks.ts                    * resusable hooks (start with rtk hooks)
     store.ts                    # store for state with redux
   data/
     transactions.ts             # seed data — mock transactions for the last 7 days
@@ -33,9 +34,9 @@ src/
   utils/
     format.ts                   # currency + date formatting helpers
     transactions.ts             # grouping / sorting helpers
-  features/                     # NEW
-    /transactions               # unnecessary?
-        treansactionsSlice.ts   # rtk slice for actions and reducers
+  features/                     *
+    /transactions               * unnecessary?
+        treansactionsSlice.ts   * rtk slice for actions and reducers
 ```
 
 - c. write bare bones slice in treansactionsSlice with add and delete transaction state => state (no change)
@@ -48,6 +49,7 @@ src/
 - a. create folder structure
 
 ```
+// * new dir || folder
 src/
   App.tsx                    # root component
   main.tsx                   # React entry point
@@ -61,16 +63,16 @@ src/
   components/
     DayGroup.tsx             # renders a single day's header + rows
     TransactionRow.tsx       # renders one transaction
-    Modal.tsx                # agnostic resuable modal
-    Datepicker.tsx           # agnostic resuable date picker
-    NumberInput.tsx          # agnostic resuable number input
-    TextInput.tsx            # agnostic resuable text input
-    Select.tsx               # agnostic resuable select
-    NewTransactionForm.tsx   # aggergation of datepicker, number and text inputs and select to enable a uer to create a new transaction
+    Modal.tsx                * agnostic resuable modal
+    Datepicker.tsx           * agnostic resuable date picker
+    NumberInput.tsx          * agnostic resuable number input
+    TextInput.tsx            * agnostic resuable text input
+    Select.tsx               * agnostic resuable select
+    NewTransactionForm.tsx   * aggergation of datepicker, number and text inputs and select to enable a uer to create a new transaction
   utils/
     format.ts                # currency + date formatting helpers
     transactions.ts          # grouping / sorting helpers
-  features/                  # NEW
+  features/                  #
     treansactionsSlice.ts    # rtk slice for actions and reducers
 ```
 
