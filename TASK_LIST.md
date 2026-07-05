@@ -72,9 +72,9 @@ src/
   utils/
     format.ts                   # currency + date formatting helpers
     transactions.ts             # grouping / sorting helpers
-  features/                     *
-    /transactions               * unnecessary?
-        treansactionsSlice.ts   * rtk slice for actions and reducers
+  features/                     #
+    /transactions               # unnecessary?
+        treansactionsSlice.ts   # rtk slice for actions and reducers
 ```
 
 - b. Modal.tsx and place in App.tsx enabled by a button labeled "new transaction"
