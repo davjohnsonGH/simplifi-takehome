@@ -3,6 +3,7 @@ import { DayGroup } from "./components/DayGroup";
 import { groupByDay } from "./utils/transactions";
 import { useAppSelector } from "./app/hooks";
 import Modal from "./components/Modal";
+import NewTransactionForm from "./components/NewTransactionForm";
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,7 +29,7 @@ export default function App() {
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
         >
-          {/* todo: input children (NewTransactionForm) */}
+          <NewTransactionForm temp="hello world" />
         </Modal>
         {grouped.map(({ date, transactions: dayTransactions }) => (
           <DayGroup key={date} date={date} transactions={dayTransactions} />

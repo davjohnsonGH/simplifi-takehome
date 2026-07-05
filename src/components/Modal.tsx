@@ -3,7 +3,7 @@ interface ModalProps {
   title: string;
   isOpen: boolean;
   onClose: () => void;
-  //   children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export default function Modal({
@@ -11,7 +11,7 @@ export default function Modal({
   title,
   isOpen,
   onClose,
-  //   children,
+  children,
 }: ModalProps) {
   if (!isOpen) return null;
 
@@ -25,7 +25,7 @@ export default function Modal({
           </button>
         </div>
 
-        {/* <div className="modal-body">{children}</div> */}
+        <div className="modal-body">{children}</div>
 
         <div className="modal-footer">
           <button className="modal-button" onClick={onClose}>
