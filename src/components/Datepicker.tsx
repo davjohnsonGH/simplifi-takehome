@@ -1,11 +1,8 @@
-interface DatepickerProps {
-  id: string;
-  label: string;
-  required?: boolean;
-  disabled?: boolean;
+import type { FormComponentBase } from "./types";
+
+interface DatepickerProps extends FormComponentBase {
   min?: string;
   max?: string;
-  //   onChange: (fieldId: string, value: string) => void;
 }
 
 export default function Datepicker({
