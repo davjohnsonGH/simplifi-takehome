@@ -22,9 +22,12 @@ export default function Select({
   onChange,
 }: SelectProps) {
   return (
-    <>
-      <label htmlFor={id}>{label}</label>
+    <div className="form-field">
+      <label className="form-label" htmlFor={id}>
+        {label}
+      </label>
       <select
+        className="form-select"
         name={name}
         id={id}
         required={required}
@@ -39,6 +42,6 @@ export default function Select({
             </option>
           ))}
       </select>
-    </>
+    </div>
   );
 }

@@ -15,9 +15,12 @@ export default function Datepicker({
   onChange,
 }: DatepickerProps) {
   return (
-    <>
-      <label htmlFor={id}>{label}</label>
+    <div className="form-field">
+      <label className="form-label" htmlFor={id}>
+        {label}
+      </label>
       <input
+        className="form-input form-date-input"
         id={id}
         type="date"
         required={required}
@@ -26,6 +29,6 @@ export default function Datepicker({
         max={max}
         onChange={(e) => onChange(id, e.target.value)}
       />
-    </>
+    </div>
   );
 }

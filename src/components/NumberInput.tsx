@@ -19,9 +19,12 @@ export default function NumberInput({
   onChange,
 }: NumberInputProps) {
   return (
-    <>
-      <label htmlFor={id}>{label}</label>
+    <div className="form-field">
+      <label className="form-label" htmlFor={id}>
+        {label}
+      </label>
       <input
+        className="form-input"
         id={id}
         type="number"
         min={min}
@@ -32,6 +35,6 @@ export default function NumberInput({
         placeholder={placeholder}
         onChange={(e) => onChange(id, Number(e.target.value))}
       />
-    </>
+    </div>
   );
 }

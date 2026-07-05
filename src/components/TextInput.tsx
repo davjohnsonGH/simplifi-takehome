@@ -15,10 +15,12 @@ export default function TextInput({
   onChange,
 }: TextInputProps) {
   return (
-    <>
-      <label htmlFor={id}>{label}</label>
-      <br />
+    <div className="form-field">
+      <label className="form-label" htmlFor={id}>
+        {label}
+      </label>
       <input
+        className="form-input"
         id={id}
         required={required}
         disabled={disabled}
@@ -26,6 +28,6 @@ export default function TextInput({
         maxLength={maxLength}
         onChange={(e) => onChange(id, e.target.value)}
       />
-    </>
+    </div>
   );
 }

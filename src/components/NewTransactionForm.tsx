@@ -54,23 +54,27 @@ export default function NewTransactionForm({
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="new-transaction-form" onSubmit={handleSubmit}>
       <TextInput
         id="merchant"
         label="Input merchant"
         required={true}
+        placeholder="e.g. Trader Joe's"
         onChange={handleChange}
       />
       <NumberInput
         id="amount"
         label="Transaction amount"
         required={true}
+        step="0.01"
+        placeholder="0.00"
         onChange={handleChange}
       />
       <Select
         id="category"
         label="Select category"
         required={true}
+        placeholder="Choose a category"
         options={options}
         onChange={handleChange}
       />
@@ -80,7 +84,9 @@ export default function NewTransactionForm({
         required={true}
         onChange={handleChange}
       />
-      <button type="submit">Submit</button>
+      <button className="form-submit-button" type="submit">
+        Save Transaction
+      </button>
     </form>
   );
 }
