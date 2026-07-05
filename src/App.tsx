@@ -14,10 +14,20 @@ export default function App() {
       <header className="app-header">
         <h1>Transactions</h1>
         <p className="subtitle">Last 7 days</p>
-        <button onClick={() => setIsModalOpen(true)}>New Transaction</button>
+        <button
+          id="new-transaction-button"
+          onClick={() => setIsModalOpen(true)}
+        >
+          New Transaction
+        </button>
       </header>
       <main className="app-main">
-        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <Modal
+          id="new-transaction-modal"
+          title="Transaction Details"
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        >
           {/* todo: input children (NewTransactionForm) */}
         </Modal>
         {grouped.map(({ date, transactions: dayTransactions }) => (

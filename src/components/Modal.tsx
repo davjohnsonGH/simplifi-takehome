@@ -1,21 +1,25 @@
-interface TransactionModalProps {
+interface ModalProps {
+  id: string;
+  title: string;
   isOpen: boolean;
   onClose: () => void;
   //   children: React.ReactNode;
 }
 
 export default function Modal({
+  id,
+  title,
   isOpen,
   onClose,
   //   children,
-}: TransactionModalProps) {
+}: ModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <div id={id} className="modal-backdrop" onClick={onClose}>
       <div className="modal" onClick={(event) => event.stopPropagation()}>
         <div className="modal-header">
-          <h2 className="modal-title">Transaction Details</h2>
+          <h2 className="modal-title">{title}</h2>
           <button className="modal-close-button" onClick={onClose}>
             ×
           </button>
