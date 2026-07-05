@@ -16,7 +16,13 @@ type DraftTransaction = Omit<
   "id" | "date" | "merchant" | "category" | "amount"
 >;
 
-export default function NewTransactionForm() {
+type NewTransactionFormProps = {
+  onSubmitSuccess?: () => void;
+};
+
+export default function NewTransactionForm({
+  onSubmitSuccess,
+}: NewTransactionFormProps) {
   const [formValues, setFormValues] = useState<FormValues>({});
   const dispatch = useAppDispatch();
   const transactions = useAppSelector((state) => state.transactions.items);
@@ -44,6 +50,7 @@ export default function NewTransactionForm() {
     event.preventDefault();
     const transaction = createNewTransaction(formValues);
     dispatch(addTransaction(transaction as Transaction));
+    onSubmitSuccess?.();
   }
 
   return (
