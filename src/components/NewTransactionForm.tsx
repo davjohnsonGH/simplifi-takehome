@@ -1,6 +1,7 @@
 import Datepicker from "./Datepicker";
 import NumberInput from "./NumberInput";
 import TextInput from "./TextInput";
+import Select from "./Select";
 interface NewTransactionFormProps {
   //   temp: string;
 }
@@ -15,6 +16,7 @@ export default function NewTransactionForm({}: NewTransactionFormProps) {
         label="Transaction amount"
       />
       <TextInput id={elIdPrefix + "-textinput"} label="Input merchant" />
+      <Select id={elIdPrefix + "-select"} label="Select category" />
     </div>
   );
 }
