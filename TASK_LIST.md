@@ -51,29 +51,30 @@ src/
 ```
 // * new dir || folder
 src/
-  App.tsx                    # root component
-  main.tsx                   # React entry point
-  types.ts                   # Category, TransactionCategory, TRANSACTION_CATEGORIES, Transaction
-  styles.css                 # global styles
-  app/                       # NEW (move App.tsx into this?)
-    hooks.ts                 # resusable hooks (start with rtk hooks)
-    store.ts                 # store for state with redux
+  App.tsx                       # root component
+  main.tsx                      # React entry point
+  types.ts                      # Category, TransactionCategory, TRANSACTION_CATEGORIES, Transaction
+  styles.css                    # global styles
+  app/                          # (move App.tsx into this?)
+    hooks.ts                    # resusable hooks (start with rtk hooks)
+    store.ts                    # store for state with redux
   data/
-    transactions.ts          # seed data — mock transactions for the last 7 days
+    transactions.ts             # seed data — mock transactions for the last 7 days
   components/
-    DayGroup.tsx             # renders a single day's header + rows
-    TransactionRow.tsx       # renders one transaction
-    Modal.tsx                * agnostic resuable modal
-    Datepicker.tsx           * agnostic resuable date picker
-    NumberInput.tsx          * agnostic resuable number input
-    TextInput.tsx            * agnostic resuable text input
-    Select.tsx               * agnostic resuable select
-    NewTransactionForm.tsx   * aggergation of datepicker, number and text inputs and select to enable a uer to create a new transaction
+    DayGroup.tsx                # renders a single day's header + rows
+    TransactionRow.tsx          # renders one transaction
+    Modal.tsx                   * agnostic resuable modal
+    Datepicker.tsx              * agnostic resuable date picker
+    NumberInput.tsx             * agnostic resuable number input
+    TextInput.tsx               * agnostic resuable text input
+    Select.tsx                  * agnostic resuable select
+    NewTransactionForm.tsx      * aggergation of datepicker, number and text inputs and select to enable a uer to create a new transaction
   utils/
-    format.ts                # currency + date formatting helpers
-    transactions.ts          # grouping / sorting helpers
-  features/                  #
-    treansactionsSlice.ts    # rtk slice for actions and reducers
+    format.ts                   # currency + date formatting helpers
+    transactions.ts             # grouping / sorting helpers
+  features/                     #
+    /transactions               # unnecessary?
+        treansactionsSlice.ts   # rtk slice for actions and reducers
 ```
 
 - b. Modal.tsx and place in App.tsx enabled by a button labeled "new transaction"
@@ -82,12 +83,9 @@ src/
 - e. NumberInput.tsx and position into NewTransactionForm.tsx
 - f. TextInput.tsx and position into NewTransactionForm.tsx
 - g. Select.tsx and position into NewTransactionForm.tsx
-- h. logic for onChange
-- i. logic for onSubmit
-- j. logic for select options
-- k. enable NewTransactionForm within Modal within App.tsx
-- l. implement addTransaction reducer in transactionsSlice and export addTransaction action
-- l. enable newTransationSubmit within App.tsx
+- h. logic for onChange, onSubmit, options rendering and logic
+- i. implement addTransaction reducer in transactionsSlice and export addTransaction action
+- k. styling and cleanup
 
 ## 3. Delete a transaction
 
