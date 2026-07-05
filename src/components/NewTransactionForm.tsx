@@ -1,27 +1,39 @@
 import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { addTransaction } from "../features/transactions/transactionsSlice";
 // data for options
-import { TRANSACTION_CATEGORIES } from "../types";
+import { TRANSACTION_CATEGORIES, Transaction } from "../types";
 // components
 import Datepicker from "./Datepicker";
 import NumberInput from "./NumberInput";
 import TextInput from "./TextInput";
 import Select from "./Select";
 
-export type FormValue = string | number | boolean | FileList | null;
-export type FormValues = Record<string, FormValue>;
+type FormValue = string | number | boolean | FileList | null;
+type FormValues = Record<string, FormValue>;
+type DraftTransaction = Omit<
+  Transaction,
+  "id" | "date" | "merchant" | "category" | "amount"
+>;
 
-interface NewTransactionFormProps {
-  //   temp: string;
-}
-
-export default function NewTransactionForm({}: NewTransactionFormProps) {
+export default function NewTransactionForm() {
   const [formValues, setFormValues] = useState<FormValues>({});
+  const dispatch = useAppDispatch();
+  const transactions = useAppSelector((state) => state.transactions.items);
 
-  const elIdPrefix = "new-transaction-form";
   const options = TRANSACTION_CATEGORIES.map((category) => ({
     label: category,
     value: category,
   }));
+  const createNewTransaction = (values: DraftTransaction) => {
+    const lastId = transactions[transactions.length - 1]?.["id"];
+    const newTransactionID = lastId ? "t" + String(+lastId.slice(1) + 1) : "t1";
+    const transaction = {
+      ...values,
+      id: newTransactionID,
+    };
+    return transaction;
+  };
   function handleChange(fieldId: string, value: FormValue) {
     setFormValues((previous) => ({
       ...previous,
@@ -30,29 +42,35 @@ export default function NewTransactionForm({}: NewTransactionFormProps) {
   }
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const transaction = createNewTransaction(formValues);
+    dispatch(addTransaction(transaction as Transaction));
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <Datepicker
-        id={elIdPrefix + "-datepicker"}
-        label="Transaction date"
+      <TextInput
+        id="merchant"
+        label="Input merchant"
+        required={true}
         onChange={handleChange}
       />
       <NumberInput
-        id={elIdPrefix + "-numberinput"}
+        id="amount"
         label="Transaction amount"
-        onChange={handleChange}
-      />
-      <TextInput
-        id={elIdPrefix + "-textinput"}
-        label="Input merchant"
+        required={true}
         onChange={handleChange}
       />
       <Select
-        id={elIdPrefix + "-select"}
+        id="category"
         label="Select category"
+        required={true}
         options={options}
+        onChange={handleChange}
+      />
+      <Datepicker
+        id="date"
+        label="Transaction date"
+        required={true}
         onChange={handleChange}
       />
       <button type="submit">Submit</button>
