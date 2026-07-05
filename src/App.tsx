@@ -29,7 +29,7 @@ export default function App() {
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
         >
-          <NewTransactionForm temp="hello world" />
+          <NewTransactionForm />
         </Modal>
         {grouped.map(({ date, transactions: dayTransactions }) => (
           <DayGroup key={date} date={date} transactions={dayTransactions} />

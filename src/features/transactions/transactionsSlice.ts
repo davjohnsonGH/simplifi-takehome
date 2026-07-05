@@ -1,8 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Transaction } from "../../types";
 import { transactions } from "../../data/transactions";
 
-// TODO: fill out reducers, export reducers and actions
 type TransactionsState = {
   items: Transaction[];
 };
@@ -14,9 +13,13 @@ const transactionsSlice = createSlice({
   name: "transactions",
   initialState,
   reducers: {
-    addTransaction: (state) => state,
+    addTransaction(state, action: PayloadAction<Transaction>) {
+      state.items.push(action.payload);
+    },
     deleteTransaction: (state) => state,
   },
 });
 
+
+export const { addTransaction } = transactionsSlice.actions;
 export default transactionsSlice.reducer;
