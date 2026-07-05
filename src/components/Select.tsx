@@ -19,7 +19,7 @@ export default function Select({
   name,
   placeholder,
   options,
-  //   onChange,
+  onChange,
 }: SelectProps) {
   return (
     <>
@@ -29,7 +29,7 @@ export default function Select({
         id={id}
         required={required}
         disabled={disabled}
-        // onChange={(e) => onChange(id, e.target.value)}
+        onChange={(e) => onChange(id, e.target.value)}
       >
         <option value="">{placeholder ?? "choose one"}</option>
         {options &&

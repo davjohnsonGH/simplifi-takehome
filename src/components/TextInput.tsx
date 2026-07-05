@@ -12,7 +12,7 @@ export default function TextInput({
   disabled,
   maxLength,
   placeholder,
-  //   onChange
+  onChange,
 }: TextInputProps) {
   return (
     <>
@@ -24,7 +24,7 @@ export default function TextInput({
         disabled={disabled}
         placeholder={placeholder}
         maxLength={maxLength}
-        // onChange={(e) => onChange(id, e.target.value)}
+        onChange={(e) => onChange(id, e.target.value)}
       />
     </>
   );
