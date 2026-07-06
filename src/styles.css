@@ -29,15 +29,24 @@ body,
 }
 
 .app {
-  max-width: 640px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 32px 20px 64px;
+  padding: 32px 24px 64px;
 }
 
 .app-header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
   margin-bottom: 24px;
+}
+
+.app-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .app-header h1 {
@@ -51,6 +60,44 @@ body,
   margin: 4px 0 0;
   color: var(--color-muted);
   font-size: 14px;
+}
+
+.app-header-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.app-header-controls .form-field {
+  min-width: 300px;
+}
+
+.new-transaction-button {
+  height: 52px;
+  padding: 0 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.new-transaction-button:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.new-transaction-button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .app-main {
@@ -305,6 +352,11 @@ body,
     box-shadow 0.15s ease;
 }
 
+.form-select[multiple] {
+  height: auto;
+  padding: 8px 12px;
+}
+
 .form-date-input {
   font-family: inherit;
 }
@@ -359,6 +411,25 @@ body,
 }
 
 @media (max-width: 520px) {
+  .app {
+    padding: 24px 14px 56px;
+  }
+
+  .app-header-controls {
+    width: 100%;
+    margin-left: 0;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .app-header-controls .form-field {
+    min-width: 0;
+  }
+
+  .new-transaction-button {
+    width: 100%;
+  }
+
   .modal-body {
     padding: 16px;
   }

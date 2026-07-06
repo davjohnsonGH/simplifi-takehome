@@ -8,9 +8,9 @@ import Datepicker from "./Datepicker";
 import NumberInput from "./NumberInput";
 import TextInput from "./TextInput";
 import Select from "./Select";
+import type { FormComponentValue } from "./types";
 
-type FormValue = string | number | boolean | FileList | null;
-type FormValues = Record<string, FormValue>;
+type FormValues = Record<string, FormComponentValue>;
 type DraftTransaction = Omit<
   Transaction,
   "id" | "date" | "merchant" | "category" | "amount"
@@ -40,7 +40,7 @@ export default function NewTransactionForm({
     };
     return transaction;
   };
-  function handleChange(fieldId: string, value: FormValue) {
+  function handleChange(fieldId: string, value: FormComponentValue) {
     setFormValues((previous) => ({
       ...previous,
       [fieldId]: value,
