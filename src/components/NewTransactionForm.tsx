@@ -135,7 +135,7 @@ export default function NewTransactionForm({
     event.preventDefault();
 
     const result = validateAndParse(formValues);
-    console.log(result);
+
     if (!result.ok) {
       setErrors(result.errors);
       return;
