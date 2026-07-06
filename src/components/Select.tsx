@@ -54,7 +54,7 @@ export default function Select({
         size={size}
         onChange={handleSelectChange}
       >
-        <option value="">{placeholder ?? "choose one"}</option>
+        {!multiple && <option value="">{placeholder ?? "choose one"}</option>}
         {options &&
           options.map((option) => (
             <option key={option.value} value={option.value}>

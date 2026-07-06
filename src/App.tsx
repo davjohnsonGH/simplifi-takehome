@@ -24,15 +24,20 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Transactions</h1>
-        <p className="subtitle">Last 7 days</p>
-        <FilterByCategory onCategoriesChange={setSelectedCategories} />
-        <button
-          id="new-transaction-button"
-          onClick={() => setIsModalOpen(true)}
-        >
-          New Transaction
-        </button>
+        <div className="app-title-block">
+          <h1>Transactions</h1>
+          <p className="subtitle">Last 7 days</p>
+        </div>
+        <div className="app-header-controls">
+          <FilterByCategory onCategoriesChange={setSelectedCategories} />
+          <button
+            className="new-transaction-button"
+            id="new-transaction-button"
+            onClick={() => setIsModalOpen(true)}
+          >
+            New Transaction
+          </button>
+        </div>
       </header>
       <main className="app-main">
         <Modal
