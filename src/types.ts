@@ -23,6 +23,6 @@ export interface Transaction {
   id: string;
   date: string;
   merchant: string;
-  category: TransactionCategory;
+  category: TransactionCategory | string;
   amount: number;
 }
