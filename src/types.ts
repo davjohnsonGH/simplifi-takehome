@@ -11,7 +11,9 @@ export const Category = {
   Travel: "Travel",
 } as const;
 
-export type TransactionCategory = (typeof Category)[keyof typeof Category];
+export type TransactionCategory =
+  | (typeof Category)[keyof typeof Category]
+  | string;
 
 export const TRANSACTION_CATEGORIES: readonly TransactionCategory[] =
   Object.values(Category);
@@ -23,6 +25,6 @@ export interface Transaction {
   id: string;
   date: string;
   merchant: string;
-  category: TransactionCategory | string;
+  category: TransactionCategory;
   amount: number;
 }
