@@ -92,6 +92,7 @@ src/
 - a. in TransactionsSlice implement deleteTransaction reducer and export deleteTransaction action
 - b. in TransactionRow.tsx enable delete transaction with button, position button within the row under the amount, or to the far right and center align the amount
 - c. enable warning modal to enable user warning on deleting transaction
+- e. styling and cleanup
 
 ## 4. Filter by category
 
