@@ -1,3 +1,5 @@
+export type FormComponentValue = string | number | string[];
+
 export type FormComponentBase = {
   id: string;
   label: string;
