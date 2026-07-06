@@ -102,6 +102,7 @@ body,
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
   padding: 14px 16px;
   border-top: 1px solid var(--color-border);
 }
@@ -115,6 +116,14 @@ body,
   flex-direction: column;
   gap: 2px;
   min-width: 0;
+  flex: 1 1 auto;
+}
+
+.transaction-actions {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .transaction-merchant {
@@ -134,8 +143,69 @@ body,
   font-size: 15px;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
-  margin-left: 16px;
   white-space: nowrap;
+  text-align: right;
+  min-width: 88px;
+}
+
+.trash-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.transaction-icon-button,
+.transaction-delete-button {
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.12s ease;
+}
+
+.transaction-icon-button {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.transaction-delete-button {
+  height: 34px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.transaction-icon-button:hover,
+.transaction-delete-button:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.transaction-icon-button:active,
+.transaction-delete-button:active {
+  transform: translateY(1px);
+}
+
+.transaction-icon-button:focus-visible,
+.transaction-delete-button:focus-visible {
+  outline: 2px solid #ef4444;
+  outline-offset: 2px;
+}
+
+.transaction-row-modal {
+  padding: 8px 0;
+  border-top: none;
 }
 
 .amount-credit {
