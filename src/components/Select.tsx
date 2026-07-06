@@ -8,6 +8,8 @@ type Option = {
 interface SelectProps extends FormComponentBase {
   name?: string;
   placeholder?: string;
+  multiple?: boolean;
+  size?: number;
   options?: Option[];
 }
 
@@ -19,8 +21,24 @@ export default function Select({
   name,
   placeholder,
   options,
+  multiple = false,
+  size,
   onChange,
 }: SelectProps) {
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    if (multiple) {
+      const selectedValues = Array.from(
+        event.target.selectedOptions,
+        (option) => option.value,
+      );
+      // need to get this type safe
+      onChange(id, selectedValues);
+      return;
+    }
+
+    onChange(id, event.target.value);
+  };
+
   return (
     <div className="form-field">
       <label className="form-label" htmlFor={id}>
@@ -32,7 +50,9 @@ export default function Select({
         id={id}
         required={required}
         disabled={disabled}
-        onChange={(e) => onChange(id, e.target.value)}
+        multiple={multiple}
+        size={size}
+        onChange={handleSelectChange}
       >
         <option value="">{placeholder ?? "choose one"}</option>
         {options &&
