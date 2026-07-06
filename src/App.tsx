@@ -5,22 +5,39 @@ import { useAppSelector } from "./app/hooks";
 import Modal from "./components/Modal";
 import NewTransactionForm from "./components/NewTransactionForm";
 
+import FilterByCategory from "./components/FilterByCategory";
+import type { TransactionCategory } from "./types";
+import { useVisibleTransactions } from "./hooks/useVisibleTransactions";
+
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState<
+    TransactionCategory[]
+  >([]);
   const transactions = useAppSelector((state) => state.transactions.items);
-  const grouped = groupByDay(transactions);
+  const visibleTransactions = useVisibleTransactions({
+    transactions,
+    selectedCategories,
+  });
+  const grouped = groupByDay(visibleTransactions);
 
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Transactions</h1>
-        <p className="subtitle">Last 7 days</p>
-        <button
-          id="new-transaction-button"
-          onClick={() => setIsModalOpen(true)}
-        >
-          New Transaction
-        </button>
+        <div className="app-title-block">
+          <h1>Transactions</h1>
+          <p className="subtitle">Last 7 days</p>
+        </div>
+        <div className="app-header-controls">
+          <FilterByCategory onCategoriesChange={setSelectedCategories} />
+          <button
+            className="new-transaction-button"
+            id="new-transaction-button"
+            onClick={() => setIsModalOpen(true)}
+          >
+            New Transaction
+          </button>
+        </div>
       </header>
       <main className="app-main">
         <Modal

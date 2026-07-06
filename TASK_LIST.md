@@ -96,12 +96,10 @@ src/
 
 ## 4. Filter by category
 
-- a. update folder structure to include the MultiSelect.tsx component under components/
-- b. import multi-select into App.tsx
-- c. build multiSelectChange method to capture values[] within change event
-- d. enable and update selectedCategories state within component
-- e. facilitate selectedCategories into a visableTransacations function
-- d. posistion visableTransacations into groupByDay method
+- a. modify select to become multi select
+- b. create FilterByCategory.tsx component
+- c. build useVisibleTransactions hook and wire into App.tsx
+- d. styling and clean up
 
 ## 5. Search (stretch)
 
