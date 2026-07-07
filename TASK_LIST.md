@@ -11,7 +11,7 @@ main -> dev -> feat-{task} (commit)
 
 ```
 
-## 1. Introduce state management
+## 1. Introduce state management - DONE
 
 - a. install toolkit and react-redux
 - b. enable folder structure for state management
@@ -44,7 +44,7 @@ src/
 - e. create hooks for rtk dispatch and selector
 - f. position useAppSelector in App.tsx && main.tsx for redux state managment of transactions
 
-## 2. Add a transaction
+## 2. Add a transaction - DONE
 
 - a. create folder structure
 
@@ -87,21 +87,21 @@ src/
 - i. implement addTransaction reducer in transactionsSlice and export addTransaction action
 - k. styling and cleanup
 
-## 3. Delete a transaction
+## 3. Delete a transaction - DONE
 
 - a. in TransactionsSlice implement deleteTransaction reducer and export deleteTransaction action
 - b. in TransactionRow.tsx enable delete transaction with button, position button within the row under the amount, or to the far right and center align the amount
 - c. enable warning modal to enable user warning on deleting transaction
 - e. styling and cleanup
 
-## 4. Filter by category
+## 4. Filter by category - DONE
 
 - a. modify select to become multi select
 - b. create FilterByCategory.tsx component
 - c. build useVisibleTransactions hook and wire into App.tsx
 - d. styling and clean up
 
-## 5. Search (stretch)
+## 5. Search (stretch) - DONE
 
 - a. update folder structure to house a SerchInput.tsx this would include type-ahead functionality
 - b. import SerchInput.tsx into App.tsx
