@@ -18,14 +18,15 @@ export function useVisibleTransactions({
       return transactions;
     }
     // if search and filter
-   if (selectedCategories.length > 0 && selectedMerchants.length > 0) {
+    if (selectedCategories.length > 0 && selectedMerchants.length > 0) {
       const filteredTransactions = transactions.filter((transaction) =>
         selectedCategories.includes(transaction.category),
       );
       return filteredTransactions.filter((transaction) =>
-        transaction.merchant.toLowerCase().includes(selectedMerchants.toLowerCase())
+        transaction.merchant
+          .toLowerCase()
+          .includes(selectedMerchants.toLowerCase()),
       );
-
     }
     // if filter and no search
     if (selectedCategories.length > 0 && selectedMerchants.length === 0) {
@@ -34,13 +35,13 @@ export function useVisibleTransactions({
       );
     }
     // if search and no filter
-   if (selectedCategories.length === 0 && selectedMerchants.length > 0) {
+    if (selectedCategories.length === 0 && selectedMerchants.length > 0) {
       return transactions.filter((transaction) =>
-        transaction.merchant.toLowerCase().includes(selectedMerchants.toLowerCase())
+        transaction.merchant
+          .toLowerCase()
+          .includes(selectedMerchants.toLowerCase()),
       );
     }
     return transactions;
-
-
   }, [transactions, selectedCategories, selectedMerchants]);
 }

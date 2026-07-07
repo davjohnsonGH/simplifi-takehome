@@ -1,5 +1,3 @@
-import TextInput from "./TextInput";
-
 interface SearchByMerchantProps {
   onMerchantChange: (merchants: string) => void;
 }
