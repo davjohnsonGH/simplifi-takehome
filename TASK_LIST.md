@@ -108,9 +108,9 @@ src/
 - c. position SerchInput into header of transactions list
 - d. build out and leverage visableTransacations functionality to surface selectedCategories, this may be tricky if a user chooses to search and filter in the same action
 
-## 5. Global and clean up
+## 6. Global and clean up - TODO
 
 - a. review folder structure to see if this makes sense for exercise vs scalibility
 - b. styling
 - c. tests??
-- e.
+- e. general code cleanup
