@@ -1,4 +1,4 @@
-// import TextInput from "./TextInput";
+import TextInput from "./TextInput";
 
 interface SearchByMerchantProps {
   onMerchantChange: (merchants: string) => void;
@@ -13,7 +13,11 @@ export default function SearchByMerchant({
 
   return (
     <div>
-      <input id="search" onChange={(e) => handleChange(e.target.value)} />
+      <input
+        className="form-input"
+        id="search"
+        onChange={(e) => handleChange(e.target.value)}
+      />
     </div>
   );
 }
