@@ -7,41 +7,37 @@ interface UseVisibleTransactionsParams {
   selectedMerchants: string;
 }
 
+function matchesCategory(
+  transaction: Transaction,
+  selectedCategories: string[],
+) {
+  return selectedCategories.includes(transaction.category);
+}
+
+function matchesMerchant(transaction: Transaction, merchantSearch: string) {
+  return transaction.merchant.toLowerCase().includes(merchantSearch);
+}
+
 export function useVisibleTransactions({
   transactions,
   selectedCategories,
   selectedMerchants,
 }: UseVisibleTransactionsParams) {
   return useMemo(() => {
-    // if no search or filter
-    if (selectedCategories.length === 0 && selectedMerchants.length === 0) {
+    const hasCategoryFilter = selectedCategories.length > 0;
+    const hasMerchantFilter = selectedMerchants.length > 0;
+    const merchantSearch = selectedMerchants.toLowerCase();
+
+    if (!hasCategoryFilter && !hasMerchantFilter) {
       return transactions;
     }
-    // if search and filter
-    if (selectedCategories.length > 0 && selectedMerchants.length > 0) {
-      const filteredTransactions = transactions.filter((transaction) =>
-        selectedCategories.includes(transaction.category),
+
+    return transactions.filter((transaction) => {
+      return (
+        (!hasCategoryFilter ||
+          matchesCategory(transaction, selectedCategories)) &&
+        (!hasMerchantFilter || matchesMerchant(transaction, merchantSearch))
       );
-      return filteredTransactions.filter((transaction) =>
-        transaction.merchant
-          .toLowerCase()
-          .includes(selectedMerchants.toLowerCase()),
-      );
-    }
-    // if filter and no search
-    if (selectedCategories.length > 0 && selectedMerchants.length === 0) {
-      return transactions.filter((transaction) =>
-        selectedCategories.includes(transaction.category),
-      );
-    }
-    // if search and no filter
-    if (selectedCategories.length === 0 && selectedMerchants.length > 0) {
-      return transactions.filter((transaction) =>
-        transaction.merchant
-          .toLowerCase()
-          .includes(selectedMerchants.toLowerCase()),
-      );
-    }
-    return transactions;
+    });
   }, [transactions, selectedCategories, selectedMerchants]);
 }
